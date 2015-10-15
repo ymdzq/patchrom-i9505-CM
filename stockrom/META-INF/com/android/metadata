@@ -1,0 +1,3 @@
+post-build=samsung/cm_jflte/jflte:4.4.4/KTU84Q/f3f1959fee:userdebug/test-keys
+post-timestamp=1443979172
+pre-device=jflte

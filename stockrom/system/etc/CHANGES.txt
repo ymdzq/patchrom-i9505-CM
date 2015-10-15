@@ -1,0 +1,189 @@
+===================================
+Since Mon Sep  7 00:48:13 UTC 2015
+===================================
+
+   * android
+311a74d manifest: Remove vendor/cyngn repo
+
+   * frameworks/base
+9649fbc National roaming info for new Tuenti MNC in Spain
+
+   * vendor/cm
+4eea643 Add new Tuenti MNC SPN override name
+
+===================================
+Since Sun Aug 30 18:43:35 UTC 2015
+===================================
+
+   * vendor/cm
+4dd80f0 Updated APN settings for Latvian operators
+
+===================================
+Since Sun Aug 23 23:03:45 UTC 2015
+===================================
+
+   * kernel/samsung/jf
+8b03f0c ptrace: fix ptrace defect cause by a merge fail
+6e577cd Revert "Revert "CHROMIUM: arch/arm: move secure_computing into trace; respect return code""
+4e428be Revert "CHROMIUM: arch/arm: move secure_computing into trace; respect return code"
+
+===================================
+Since Mon Aug 17 18:57:19 UTC 2015
+===================================
+
+   * external/koush/Superuser
+c2674e4 Automatic translation import
+
+   * external/freetype
+c341565 Update to freetype 2.6.0
+6dbd8f1 Add ftmm.c to FreeType build.
+391103d Update freetype to e1394d56752cac3bd68ab2358a8e1384ce7b9aaa
+186452f Update freetype to 8bb09b0fe4d9747bcf452a777cabed7d7ef435e2
+
+   * external/whispersystems/WhisperPush
+a3a870e Automatic translation import
+
+   * frameworks/av
+8fd5331 DO NOT MERGE - audio effects: fix heap overflow
+
+   * frameworks/base
+b4eb821 Automatic translation import
+9dde664 DO NOT MERGE Change to add STK_PERMISSION for stk related commands.
+22a5396 Prevent system uid component from running in an app process
+3c46b01 Fix wrong Hungarian translation
+
+   * frameworks/opt/telephony
+2ae2c56 DO NOT MERGE Change to add STK_PERMISSION for stk related commands.
+
+   * packages/apps/Apollo
+085099c Automatic translation import
+
+   * packages/apps/Bluetooth
+a120bf1 Automatic translation import
+
+   * packages/apps/BluetoothExt
+a540519 Automatic translation import
+
+   * packages/apps/Browser
+4aea0ec Automatic translation import
+
+   * packages/apps/CMAccount
+4bf0951 Automatic translation import
+
+   * packages/apps/CMBugReport
+7852ff0 Automatic translation import
+
+   * packages/apps/CMFileManager
+13665f2 Automatic translation import
+
+   * packages/apps/CMHome
+bd03274 Automatic translation import
+
+   * packages/apps/CMUpdater
+22083aa Automatic translation import
+
+   * packages/apps/CMWallpapers
+33cfac8 Automatic translation import
+
+   * packages/apps/Calculator
+0770ac6 Automatic translation import
+
+   * packages/apps/Calendar
+9b55458 Automatic translation import
+
+   * packages/apps/Camera2
+8eb57c1 Automatic translation import
+
+   * packages/apps/CellBroadcastReceiver
+8f742a5 Automatic translation import
+
+   * packages/apps/Contacts
+c66a14a Automatic translation import
+
+   * packages/apps/ContactsCommon
+7e794a6 Automatic translation import
+
+   * packages/apps/DSPManager
+931698e Automatic translation import
+
+   * packages/apps/DeskClock
+16dfc66 Automatic translation import
+
+   * packages/apps/Dialer
+9893daf Automatic translation import
+
+   * packages/apps/Email
+bccde02 Automatic translation import
+
+   * packages/apps/Gallery2
+3bfb432 Automatic translation import
+
+   * packages/apps/InCallUI
+2c5f2ad Automatic translation import
+
+   * packages/apps/LockClock
+9db5852 Automatic translation import
+
+   * packages/apps/Mms
+9f5346f Automatic translation import
+
+   * packages/apps/Settings
+035c92d Automatic translation import
+
+   * packages/apps/SoundRecorder
+f74f1fe Automatic translation import
+
+   * packages/apps/Stk
+0ee832e Automatic translation import
+244d035 DO NOT MERGE Change to add STK_PERMISSION for stk related commands.
+
+   * packages/apps/ThemeChooser
+a2c9e77 Automatic translation import
+
+   * packages/apps/Torch
+f0d22b9 Automatic translation import
+
+   * packages/apps/Trebuchet
+07f03a8 Automatic translation import
+
+   * packages/apps/UnifiedEmail
+6476f81 Automatic translation import
+
+   * packages/apps/VoicePlus
+7bf4591 Automatic translation import
+
+   * packages/inputmethods/LatinIME
+b9541e3 Automatic translation import
+
+   * packages/providers/ContactsProvider
+debc8e1 Automatic translation import
+
+   * packages/providers/DownloadProvider
+078607f Automatic translation import
+
+   * packages/providers/ThemesProvider
+00dcd04 Automatic translation import
+
+   * packages/providers/UserDictionaryProvider
+5510555 Automatic translation import
+
+   * packages/services/Telephony
+2c3e187 Automatic translation import
+92ad73d DO NOT MERGE Change to make STK related intents protected.
+
+   * packages/wallpapers/Galaxy4
+f21fd3e Automatic translation import
+
+   * packages/wallpapers/PhaseBeam
+9627198 Automatic translation import
+
+   * packages/wallpapers/PhotoPhase
+ca2058b Automatic translation import
+
+===================================
+Since Thu Aug 13 04:42:50 UTC 2015
+===================================
+
+   * frameworks/av
+a5dd546 MPEG4Extractor.cpp: handle chunk_size > SIZE_MAX
+

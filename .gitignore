@@ -1,0 +1,8 @@
+out/
+*.zip
+*.pyc
+log*.txt
+test/
+temp/
+updater/
+*delete-zip-file-when-clean
