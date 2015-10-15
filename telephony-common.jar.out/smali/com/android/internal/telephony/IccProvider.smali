@@ -4,7 +4,7 @@
 
 
 # static fields
-.field protected static final ADDRESS_BOOK_COLUMN_NAMES:[Ljava/lang/String;
+.field public static final ADDRESS_BOOK_COLUMN_NAMES:[Ljava/lang/String;
 
 .field private static final ADN:I = 0x1
 
@@ -48,8 +48,7 @@
 
     const/4 v3, 0x1
 
-    .line 45
-    const/4 v0, 0x5
+    const/4 v0, 0x6
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -77,7 +76,7 @@
 
     aput-object v2, v0, v1
 
-    const/4 v1, 0x4
+    const/4 v1, 0x5
 
     const-string v2, "anr"
 

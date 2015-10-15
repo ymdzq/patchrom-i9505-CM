@@ -1996,15 +1996,15 @@
 
     and-int v25, v25, v26
 
-    if-nez v25, :cond_3
+    #if-nez v25, :cond_3
 
-    move-object/from16 v0, p0
+    #move-object/from16 v0, p0
 
-    iget-boolean v0, v0, Lcom/android/server/BackupManagerService$PerformFullBackupTask;->mNoninteractive:Z
+    #iget-boolean v0, v0, Lcom/android/server/BackupManagerService$PerformFullBackupTask;->mNoninteractive:Z
 
-    move/from16 v25, v0
+    #move/from16 v25, v0
 
-    if-eqz v25, :cond_4
+    #if-eqz v25, :cond_4
 
     :cond_3
     move-object/from16 v0, v22

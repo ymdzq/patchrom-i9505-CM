@@ -1565,16 +1565,14 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 521
     .end local v0    # "uiContext":Landroid/content/Context;
     :goto_0
+    const/4 v1, 0x0
     return-object v1
 
-    .line 518
     :catch_0
     move-exception v1
 
-    .line 521
     const/4 v1, 0x0
 
     goto :goto_0

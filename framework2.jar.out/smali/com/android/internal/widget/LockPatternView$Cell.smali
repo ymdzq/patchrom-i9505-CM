@@ -38,6 +38,24 @@
     return-void
 .end method
 
+.method private constructor <init>(II)V
+    .locals 0
+    .param p1, "row"    # I
+    .param p2, "column"    # I
+
+    .prologue
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+
+    invoke-static {p1, p2}, Lcom/android/internal/widget/LockPatternView$Cell;->checkRange(II)V
+
+    iput p1, p0, Lcom/android/internal/widget/LockPatternView$Cell;->row:I
+
+    iput p2, p0, Lcom/android/internal/widget/LockPatternView$Cell;->column:I
+
+    return-void
+.end method
+
 .method private constructor <init>(IIB)V
     .locals 0
     .param p1, "row"    # I
@@ -58,6 +76,45 @@
     iput p2, p0, Lcom/android/internal/widget/LockPatternView$Cell;->column:I
 
     .line 158
+    return-void
+.end method
+
+.method private static checkRange(II)V
+    .locals 2
+    .param p0, "row"    # I
+    .param p1, "column"    # I
+
+    .prologue
+    const/4 v0, 0x2
+
+    if-ltz p0, :cond_0
+
+    if-le p0, v0, :cond_1
+
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "row must be in range 0-2"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_1
+    if-ltz p1, :cond_2
+
+    if-le p1, v0, :cond_3
+
+    :cond_2
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "column must be in range 0-2"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_3
     return-void
 .end method
 
@@ -142,6 +199,40 @@
     .line 193
     :cond_3
     return-void
+.end method
+
+.method public static declared-synchronized of(II)Lcom/android/internal/widget/LockPatternView$Cell;
+    .locals 2
+    .param p0, "row"    # I
+    .param p1, "column"    # I
+
+    .prologue
+    const-class v1, Lcom/android/internal/widget/LockPatternView$Cell;
+
+    monitor-enter v1
+
+
+    :try_start_0
+    invoke-static {p0, p1}, Lcom/android/internal/widget/LockPatternView$Cell;->checkRange(II)V
+
+    sget-object v0, Lcom/android/internal/widget/LockPatternView$Cell;->sCells:[[Lcom/android/internal/widget/LockPatternView$Cell;
+
+    aget-object v0, v0, p0
+
+    aget-object v0, v0, p1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
+
+    return-object v0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method public static declared-synchronized of(IIB)Lcom/android/internal/widget/LockPatternView$Cell;

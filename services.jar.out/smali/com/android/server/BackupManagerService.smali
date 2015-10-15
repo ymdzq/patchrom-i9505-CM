@@ -8959,7 +8959,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v15, v2}, Lcom/android/server/BackupManagerService;->startConfirmationUi(ILjava/lang/String;)Z
+    invoke-static {v0, v15, v2}, Lcom/android/server/BackupManagerService$Injector;->startConfirmationUi(Lcom/android/server/BackupManagerService;ILjava/lang/String;)Z
 
     move-result v2
 
@@ -9055,43 +9055,36 @@
 
     invoke-virtual {v2, v3, v4, v5}, Landroid/os/PowerManager;->userActivity(JZ)V
 
-    .line 5561
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v15, v1}, Lcom/android/server/BackupManagerService;->startConfirmationTimeout(ILcom/android/server/BackupManagerService$FullParams;)V
+    invoke-static {v0, v15, v1}, Lcom/android/server/BackupManagerService$Injector;->startConfirmationTimeout(Lcom/android/server/BackupManagerService;ILcom/android/server/BackupManagerService$FullParams;)V
 
-    .line 5564
     const-string v2, "BackupManagerService"
 
     const-string v3, "Waiting for full backup completion..."
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 5565
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v1}, Lcom/android/server/BackupManagerService;->waitForCompletion(Lcom/android/server/BackupManagerService$FullParams;)V
     :try_end_9
     .catchall {:try_start_9 .. :try_end_9} :catchall_1
 
-    .line 5568
     :try_start_a
     invoke-virtual/range {p1 .. p1}, Landroid/os/ParcelFileDescriptor;->close()V
     :try_end_a
     .catch Ljava/io/IOException; {:try_start_a .. :try_end_a} :catch_3
 
-    .line 5572
     :goto_4
     invoke-static {v13, v14}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .line 5573
     const-string v2, "BackupManagerService"
 
     const-string v3, "Full backup processing complete."
 
     goto/16 :goto_1
 
-    .line 5569
     .end local v1    # "params":Lcom/android/server/BackupManagerService$FullBackupParams;
     .end local v15    # "token":I
     :catch_0

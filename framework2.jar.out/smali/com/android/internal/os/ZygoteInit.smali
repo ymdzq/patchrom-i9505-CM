@@ -1435,27 +1435,24 @@
 
     sput-object v2, Lcom/android/internal/os/ZygoteInit;->mResources:Landroid/content/res/Resources;
 
-    .line 345
     sget-object v2, Lcom/android/internal/os/ZygoteInit;->mResources:Landroid/content/res/Resources;
 
     invoke-virtual {v2}, Landroid/content/res/Resources;->startPreloading()V
 
-    .line 365
     sget-object v2, Lcom/android/internal/os/ZygoteInit;->mResources:Landroid/content/res/Resources;
+
+    invoke-static {}, Lcom/android/internal/os/ZygoteInit;->preloadMiuiResources()V
 
     invoke-virtual {v2}, Landroid/content/res/Resources;->finishPreloading()V
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 369
     :goto_0
     return-void
 
-    .line 366
     :catch_0
     move-exception v0
 
-    .line 367
     .local v0, "e":Ljava/lang/RuntimeException;
     const-string v2, "Zygote"
 

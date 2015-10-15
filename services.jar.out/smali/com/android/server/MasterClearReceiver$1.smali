@@ -19,11 +19,11 @@
 
 .field final synthetic val$context:Landroid/content/Context;
 
-.field final synthetic val$wipeMedia:Z
+.field final synthetic val$intent:Landroid/content/Intent;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/MasterClearReceiver;Ljava/lang/String;ZLandroid/content/Context;)V
+.method constructor <init>(Lcom/android/server/MasterClearReceiver;Ljava/lang/String;Landroid/content/Context;Landroid/content/Intent;)V
     .locals 0
     .param p2, "x0"    # Ljava/lang/String;
 
@@ -31,9 +31,7 @@
     .line 44
     iput-object p1, p0, Lcom/android/server/MasterClearReceiver$1;->this$0:Lcom/android/server/MasterClearReceiver;
 
-    iput-boolean p3, p0, Lcom/android/server/MasterClearReceiver$1;->val$wipeMedia:Z
-
-    iput-object p4, p0, Lcom/android/server/MasterClearReceiver$1;->val$context:Landroid/content/Context;
+    iput-object p3, p0, Lcom/android/server/MasterClearReceiver$1;->val$context:Landroid/content/Context;
 
     iput-object p4, p0, Lcom/android/server/MasterClearReceiver$1;->val$intent:Landroid/content/Intent;
 
@@ -45,41 +43,34 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 5
 
     .prologue
-    .line 48
     :try_start_0
-    iget-boolean v1, p0, Lcom/android/server/MasterClearReceiver$1;->val$wipeMedia:Z
-
-    if-eqz v1, :cond_0
-
-    .line 49
     iget-object v1, p0, Lcom/android/server/MasterClearReceiver$1;->val$context:Landroid/content/Context;
 
-    invoke-static {v1}, Landroid/os/RecoverySystem;->rebootFormatUserData(Landroid/content/Context;)V
+    iget-object v2, p0, Lcom/android/server/MasterClearReceiver$1;->val$intent:Landroid/content/Intent;
 
-    .line 54
-    :goto_0
+    const-string v3, "format_sdcard"
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v2, v3, v4}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v2
+
+    invoke-static {v1, v2}, Landroid/os/RecoverySystem;->rebootFactoryReset(Landroid/content/Context;Z)V
+
     const-string v1, "MasterClear"
 
     const-string v2, "Still running after master clear?!"
 
     invoke-static {v1, v2}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 58
-    :goto_1
-    return-void
-
-    .line 52
-    :cond_0
-    iget-object v1, p0, Lcom/android/server/MasterClearReceiver$1;->val$context:Landroid/content/Context;
-
-    invoke-static {v1}, Landroid/os/RecoverySystem;->rebootWipeUserData(Landroid/content/Context;)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    :goto_0
+    return-void
 
     .line 55
     :catch_0
@@ -93,5 +84,5 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_1
+    goto :goto_0
 .end method

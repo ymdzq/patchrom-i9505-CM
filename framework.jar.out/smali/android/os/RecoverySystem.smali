@@ -216,6 +216,10 @@
 
     .line 358
     .local v1, "intent":Landroid/content/Intent;
+    const/high16 v0, 0x10000000
+
+    invoke-virtual {v1, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
     sget-object v2, Landroid/os/UserHandle;->OWNER:Landroid/os/UserHandle;
 
     const-string v3, "android.permission.MASTER_CLEAR"
@@ -300,6 +304,30 @@
 
     .line 377
     return-void
+.end method
+
+.method private static fixOtaPath(Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+    .param p0, "filename"
+
+    .prologue
+    const-string v0, "storage/emulated"
+
+    const-string v1, "data/media"
+
+    invoke-virtual {p0, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string v0, "storage/extSdCard"
+
+    const-string v1, "external_sd"
+
+    invoke-virtual {p0, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method private static getTrustedCerts(Ljava/io/File;)Ljava/util/HashSet;
@@ -627,6 +655,10 @@
 
     .line 334
     .local v1, "filename":Ljava/lang/String;
+    invoke-static {v1}, Landroid/os/RecoverySystem;->fixOtaPath(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
     const-string v2, "RecoverySystem"
 
     new-instance v3, Ljava/lang/StringBuilder;

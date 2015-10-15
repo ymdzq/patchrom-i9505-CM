@@ -2791,15 +2791,15 @@
 
     and-int v18, v18, v6
 
-    if-nez v18, :cond_4
+    #if-nez v18, :cond_4
 
-    move-object/from16 v0, p0
+    #move-object/from16 v0, p0
 
-    iget-boolean v0, v0, Lcom/android/server/BackupManagerService$PerformFullRestoreTask;->mNoninteractive:Z
+    #iget-boolean v0, v0, Lcom/android/server/BackupManagerService$PerformFullRestoreTask;->mNoninteractive:Z
 
-    move/from16 v18, v0
+    #move/from16 v18, v0
 
-    if-eqz v18, :cond_b
+    #if-eqz v18, :cond_b
 
     .line 4195
     :cond_4
@@ -2848,7 +2848,7 @@
 
     move-result v18
 
-    #if-eqz v18, :cond_9
+    if-eqz v18, :cond_9
 
     .line 4205
     move-object/from16 v0, p0

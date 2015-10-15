@@ -7140,6 +7140,16 @@
 
     invoke-virtual {v2, v3}, Landroid/content/res/Configuration;->updateFrom(Landroid/content/res/Configuration;)I
 
+    move-result v20
+
+    const v2, 0x8000
+
+    and-int v2, v2, v20
+
+    if-eqz v2, :cond_a
+
+    invoke-static/range {v20 .. v20}, Landroid/content/pm/ActivityInfo;->activityInfoConfigToNative(I)I
+
     move-result v2
 
     const/high16 v3, -0x80000000
@@ -7148,24 +7158,10 @@
 
     or-int v20, v2, v3
 
-    .line 1668
-    const v2, 0x8000
-
-    and-int v2, v2, v20
-
-    if-eqz v2, :cond_a
-
-    .line 1669
-    invoke-static/range {v20 .. v20}, Landroid/content/pm/ActivityInfo;->activityInfoConfigToNative(I)I
-
-    move-result v20
-
-    .line 1670
     const v2, 0x8000
 
     or-int v20, v20, v2
 
-    .line 1675
     .end local v21    # "density":I
     :cond_4
     :goto_0
@@ -7576,7 +7572,13 @@
     :try_start_2
     invoke-static/range {v20 .. v20}, Landroid/content/pm/ActivityInfo;->activityInfoConfigToNative(I)I
 
-    move-result v20
+    move-result v2
+
+    const/high16 v3, -0x80000000
+
+    and-int v3, v3, v20
+
+    or-int v20, v2, v3
 
     goto/16 :goto_0
 
@@ -7672,18 +7674,6 @@
     .prologue
     return-void
 .end method
-
-
-
-.method loadOverlayValue(Landroid/util/TypedValue;I)V
-    .locals 0
-    .param p1, "outValue"    # Landroid/util/TypedValue;
-    .param p2, "id"    # I
-
-    .prologue
-    return-void
-.end method
-
 
 .method createFromXml(Landroid/util/TypedValue;Landroid/content/res/XmlResourceParser;I)Landroid/graphics/drawable/Drawable;
     .locals 1

@@ -990,6 +990,8 @@
     .end local v27    # "name":Ljava/lang/String;
     :cond_1
     :goto_0
+    invoke-static/range {p1 .. p1}, Landroid/provider/MiuiSettings$System;->setNetHostName(Landroid/content/Context;)V
+
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
@@ -3108,15 +3110,14 @@
     return-object v0
 .end method
 
-.method static synthetic access$400(Lcom/android/server/ConnectivityService;Lcom/android/server/ConnectivityService$FeatureUser;Z)I
+.method static synthetic access$400(Lcom/android/server/ConnectivityService;Lcom/android/server/ConnectivityService$FeatureUser;ZI)I
     .locals 1
     .param p0, "x0"    # Lcom/android/server/ConnectivityService;
     .param p1, "x1"    # Lcom/android/server/ConnectivityService$FeatureUser;
     .param p2, "x2"    # Z
 
     .prologue
-    .line 174
-    invoke-direct {p0, p1, p2}, Lcom/android/server/ConnectivityService;->stopUsingNetworkFeature(Lcom/android/server/ConnectivityService$FeatureUser;Z)I
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/ConnectivityService;->stopUsingNetworkFeature(Lcom/android/server/ConnectivityService$FeatureUser;ZI)I
 
     move-result v0
 

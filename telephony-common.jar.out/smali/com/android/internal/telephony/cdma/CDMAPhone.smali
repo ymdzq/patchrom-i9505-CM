@@ -4223,35 +4223,43 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 1201
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/CDMAPhone;->mUiccController:Lcom/android/internal/telephony/uicc/UiccController;
 
     if-nez v2, :cond_1
 
-    .line 1234
     :cond_0
     :goto_0
     return-void
 
-    .line 1207
     :cond_1
+    iget-object v2, p0, Lcom/android/internal/telephony/cdma/CDMAPhone;->mMiuiIccPhoneBookInterfaceManager:Lcom/android/internal/telephony/MiuiIccPhoneBookInterfaceManager;
+
+    if-eqz v2, :cond_miui_0
+
+    iget-object v2, p0, Lcom/android/internal/telephony/cdma/CDMAPhone;->mMiuiIccPhoneBookInterfaceManager:Lcom/android/internal/telephony/MiuiIccPhoneBookInterfaceManager;
+
+    iget-object v3, p0, Lcom/android/internal/telephony/cdma/CDMAPhone;->mUiccController:Lcom/android/internal/telephony/uicc/UiccController;
+
+    invoke-virtual {v3}, Lcom/android/internal/telephony/uicc/UiccController;->getUiccCard()Lcom/android/internal/telephony/uicc/UiccCard;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Lcom/android/internal/telephony/MiuiIccPhoneBookInterfaceManager;->setIccCard(Lcom/android/internal/telephony/uicc/UiccCard;)V
+
+    :cond_miui_0
     invoke-virtual {p0}, Lcom/android/internal/telephony/cdma/CDMAPhone;->setCardInPhoneBook()V
 
-    .line 1209
     invoke-virtual {p0}, Lcom/android/internal/telephony/cdma/CDMAPhone;->getUiccCardApplication()Lcom/android/internal/telephony/uicc/UiccCardApplication;
 
     move-result-object v1
 
-    .line 1211
     .local v1, "newUiccApplication":Lcom/android/internal/telephony/uicc/UiccCardApplication;
     if-nez v1, :cond_2
 
-    .line 1212
     const-string v2, "can\'t find 3GPP2 application; trying APP_FAM_3GPP"
 
     invoke-virtual {p0, v2}, Lcom/android/internal/telephony/cdma/CDMAPhone;->log(Ljava/lang/String;)V
 
-    .line 1213
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/CDMAPhone;->mUiccController:Lcom/android/internal/telephony/uicc/UiccController;
 
     const/4 v3, 0x1

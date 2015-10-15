@@ -111,8 +111,6 @@
 
 .field private final mPm:Landroid/os/PowerManager;
 
-.field mPrivacyGuardPackageName:Ljava/lang/String;
-
 .field final mService:Lcom/android/server/am/ActivityManagerService;
 
 .field mSleepTimeout:Z
@@ -297,21 +295,12 @@
 
     iput-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor;->mUserStackInFront:Landroid/util/SparseIntArray;
 
-    .line 212
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor;->mPrivacyGuardPackageName:Ljava/lang/String;
-
-    .line 218
     iput-object p1, p0, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    .line 219
     iput-object p2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mContext:Landroid/content/Context;
 
-    .line 220
     iput-object p3, p0, Lcom/android/server/am/ActivityStackSupervisor;->mLooper:Landroid/os/Looper;
 
-    .line 221
     const-string v0, "power"
 
     invoke-virtual {p2, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;

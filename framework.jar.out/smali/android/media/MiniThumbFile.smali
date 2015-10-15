@@ -1415,10 +1415,6 @@
 
     move-result-wide v1
 
-    invoke-static {p1, p2}, Landroid/media/MiniThumbFile$Injector;->getPosition(J)J
-
-    move-result-wide v1
-
     .line 305
     .local v1, "pos":J
     cmp-long v0, v1, v9
@@ -1440,6 +1436,10 @@
     const-wide/16 v3, 0x2710
 
     mul-long/2addr v1, v3
+
+    invoke-static {p1, p2}, Landroid/media/MiniThumbFile$Injector;->getPosition(J)J
+
+    move-result-wide v1
 
     const/4 v7, 0x0
 
@@ -1486,11 +1486,11 @@
     .line 319
     iget-object v0, p0, Landroid/media/MiniThumbFile;->mBuffer:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->get()B
+    invoke-static {v0, p1, p2}, Landroid/media/MiniThumbFile$Injector;->isMatch(Ljava/nio/ByteBuffer;J)Z
 
     move-result v0
 
-    if-ne v0, v11, :cond_2
+    if-eqz v0, :cond_2
 
     .line 320
     iget-object v0, p0, Landroid/media/MiniThumbFile;->mBuffer:Ljava/nio/ByteBuffer;
@@ -1742,16 +1742,17 @@
 
     goto :goto_0
 
-    .line 400
     :cond_2
     const-wide/16 v6, 0x2710
 
     mul-long/2addr v4, v6
 
-    .line 402
+    invoke-static/range {p1 .. p2}, Landroid/media/MiniThumbFile$Injector;->getPosition(J)J
+
+    move-result-wide v4
+
     const/4 v12, 0x0
 
-    .line 404
     .local v12, "lock":Ljava/nio/channels/FileLock;
     :try_start_2
     move-object/from16 v0, p0
@@ -1788,7 +1789,7 @@
 
     .line 407
     .local v16, "size":I
-    const/16 v3, 0xd
+    const/16 v3, 0x15
 
     move/from16 v0, v16
 
@@ -1820,6 +1821,12 @@
 
     invoke-virtual {v3}, Ljava/nio/ByteBuffer;->getLong()J
 
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/media/MiniThumbFile;->mBuffer:Ljava/nio/ByteBuffer;
+
+    invoke-virtual {v3}, Ljava/nio/ByteBuffer;->getLong()J
+
     move-result-wide v13
 
     .line 411
@@ -1834,7 +1841,7 @@
 
     .line 413
     .local v11, "length":I
-    add-int/lit8 v3, v11, 0xd
+    add-int/lit8 v3, v11, 0x15
 
     move/from16 v0, v16
 
@@ -2118,10 +2125,6 @@
 
     move-result-wide v1
 
-    invoke-static {p2, p3}, Landroid/media/MiniThumbFile$Injector;->getPosition(J)J
-    
-    move-result-wide v1
-
     .line 348
     .local v1, "pos":J
     const-wide/16 v3, 0x0
@@ -2130,19 +2133,19 @@
 
     if-ltz v0, :cond_0
 
-    .line 350
     const-wide/16 v3, 0x2710
 
     mul-long/2addr v1, v3
 
-    .line 351
+    invoke-static {p2, p3}, Landroid/media/MiniThumbFile$Injector;->getPosition(J)J
+    
+    move-result-wide v1
+
     const/4 v7, 0x0
 
-    .line 353
     .local v7, "lock":Ljava/nio/channels/FileLock;
     if-eqz p1, :cond_3
 
-    .line 354
     :try_start_2
     array-length v0, p1
     :try_end_2

@@ -450,16 +450,6 @@
     .line 40
     invoke-direct {p0, p1, p2}, Landroid/net/wifi/SupplicantStateTracker;->handleNetworkConnectionFailure(II)V
 
-    iget-object v0, p0, Landroid/net/wifi/SupplicantStateTracker;->mContext:Landroid/content/Context;
-
-    iget-object v1, p0, Landroid/net/wifi/SupplicantStateTracker;->mWifiConfigStore:Landroid/net/wifi/WifiConfigStore;
-
-    invoke-virtual {v1}, Landroid/net/wifi/WifiConfigStore;->getConfiguredNetworks()Ljava/util/List;
-
-    move-result-object v1
-
-    invoke-static {v0, v1, p1}, Landroid/net/wifi/SupplicantStateTrackerInjector;->handleNetworkConnectionFailure(Landroid/content/Context;Ljava/util/List;I)V
-
     return-void
 .end method
 
@@ -504,6 +494,16 @@
 
     .line 110
     :cond_1
+    iget-object v0, p0, Landroid/net/wifi/SupplicantStateTracker;->mContext:Landroid/content/Context;
+
+    iget-object v1, p0, Landroid/net/wifi/SupplicantStateTracker;->mWifiConfigStore:Landroid/net/wifi/WifiConfigStore;
+
+    invoke-virtual {v1}, Landroid/net/wifi/WifiConfigStore;->getConfiguredNetworks()Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-static {v0, v1, p1}, Landroid/net/wifi/SupplicantStateTrackerInjector;->handleNetworkConnectionFailure(Landroid/content/Context;Ljava/util/List;I)V
+
     return-void
 .end method
 
