@@ -1639,13 +1639,12 @@
 
     invoke-virtual {v5, v8}, Ljava/io/FileOutputStream;->write([B)V
 
-    .line 3182
     invoke-virtual {v5}, Ljava/io/FileOutputStream;->close()V
 
-    .line 3183
+    invoke-static {p2}, Lcom/android/server/BackupManagerService$Injector;->resetManifestFileModifiedTime(Ljava/io/File;)V
+
     return-void
 
-    .line 3168
     .end local v5    # "outstream":Ljava/io/FileOutputStream;
     .restart local v3    # "installerName":Ljava/lang/String;
     :cond_1

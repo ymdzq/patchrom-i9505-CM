@@ -1657,7 +1657,7 @@
 
     .line 4042
     .local v7, "didRead":I
-    if-ltz v7, :cond_0
+    if-ltz v7, :cond_2
 
     move-object/from16 v0, p0
 
@@ -2061,7 +2061,7 @@
 
     and-int v18, v18, v19
 
-    if-nez v18, :cond_7
+    goto :cond_7
 
     .line 4081
     const-string v18, "BackupManagerService"
@@ -2848,7 +2848,7 @@
 
     move-result v18
 
-    if-eqz v18, :cond_9
+    #if-eqz v18, :cond_9
 
     .line 4205
     move-object/from16 v0, p0
